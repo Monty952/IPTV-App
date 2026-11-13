@@ -33,8 +33,11 @@ import com.iptv.online.player.live.tv.smart.data.network.ApiClient;
 import com.iptv.online.player.live.tv.smart.data.network.XtreamCodesApi;
 import com.iptv.online.player.live.tv.smart.data.parser.M3UParser;
 import com.iptv.online.player.live.tv.smart.ui.adapters.CategoryAdapter;
+import com.iptv.online.player.live.tv.smart.ui.cast.CastToTvActivity;
 import com.iptv.online.player.live.tv.smart.ui.dialogs.AddPlaylistDialog;
 import com.iptv.online.player.live.tv.smart.ui.dialogs.PinLockDialog;
+import com.iptv.online.player.live.tv.smart.ui.help.HowToUseActivity;
+import com.iptv.online.player.live.tv.smart.ui.settings.HomeSettingActivity;
 import com.iptv.online.player.live.tv.smart.ui.vod.VodMainActivity;
 
 import java.io.IOException;
@@ -152,23 +155,59 @@ public class ChannelsFragment extends Fragment implements CategoryAdapter.OnCate
         rvCategories.setLayoutManager(gridLayoutManager);
     }
 
-    // NEW: Set up button click and search listeners
+    // CHANGED: Set up button click and search listeners (removed/commented btnOpenVod, btnSearchToggle, btnAddPlaylist)
     private void setupListeners(View view) {
         swipeRefreshLayout.setOnRefreshListener(() -> loadPlaylist(true));
 
-        view.findViewById(R.id.btnOpenVod).setOnClickListener(v -> {
-            startActivity(new Intent(requireContext(), VodMainActivity.class));
-        });
+        // CHANGED: Commented out btnOpenVod, btnSearchToggle, and btnAddPlaylist functionality per request
+        /*
+        View btnOpenVod = view.findViewById(R.id.btnOpenVod);
+        if (btnOpenVod != null) {
+            btnOpenVod.setOnClickListener(v -> startActivity(new Intent(requireContext(), VodMainActivity.class)));
+        }
 
-        view.findViewById(R.id.btnSearchToggle).setOnClickListener(v -> {
-            if (layoutSearch.getVisibility() == View.VISIBLE) {
-                layoutSearch.setVisibility(View.GONE);
-                etSearchQuery.setText("");
-            } else {
-                layoutSearch.setVisibility(View.VISIBLE);
-                etSearchQuery.requestFocus();
-            }
-        });
+        View btnSearchToggle = view.findViewById(R.id.btnSearchToggle);
+        if (btnSearchToggle != null) {
+            btnSearchToggle.setOnClickListener(v -> {
+                if (layoutSearch.getVisibility() == View.VISIBLE) {
+                    layoutSearch.setVisibility(View.GONE);
+                    etSearchQuery.setText("");
+                } else {
+                    layoutSearch.setVisibility(View.VISIBLE);
+                    etSearchQuery.requestFocus();
+                }
+            });
+        }
+
+        View btnAddPlaylist = view.findViewById(R.id.btnAddPlaylist);
+        if (btnAddPlaylist != null) {
+            btnAddPlaylist.setOnClickListener(v -> {
+                new AddPlaylistDialog(requireActivity(), storageManager, playlistSource -> {
+                    tvActivePlaylistName.setText(playlistSource.getName());
+                    loadPlaylist(true);
+                }).show();
+            });
+        }
+        */
+
+        // NEW: Wire up activity_home appbar buttons in fragment (Cast, Help, Settings)
+        View btnCast = view.findViewById(R.id.btnCast);
+        if (btnCast != null) {
+            btnCast.setOnClickListener(v -> startActivity(new Intent(requireContext(), CastToTvActivity.class)));
+        }
+
+        View btnHelp = view.findViewById(R.id.btnHelp);
+        if (btnHelp != null) {
+            btnHelp.setOnClickListener(v -> startActivity(new Intent(requireContext(), HowToUseActivity.class)));
+        }
+
+        View btnHomeSettings = view.findViewById(R.id.btnHomeSettings);
+        if (btnHomeSettings != null) {
+            btnHomeSettings.setOnClickListener(v -> {
+                HomeSettingActivity.setAvailableCategories(allCategories);
+                startActivity(new Intent(requireContext(), HomeSettingActivity.class));
+            });
+        }
 
         view.findViewById(R.id.btnClearSearch).setOnClickListener(v -> etSearchQuery.setText(""));
 
@@ -198,19 +237,10 @@ public class ChannelsFragment extends Fragment implements CategoryAdapter.OnCate
             return false;
         });
 
-        view.findViewById(R.id.btnRefresh).setOnClickListener(v -> loadPlaylist(true));
-
-        view.findViewById(R.id.btnAddPlaylist).setOnClickListener(v -> {
-            new AddPlaylistDialog(requireActivity(), storageManager, playlistSource -> {
-                tvActivePlaylistName.setText(playlistSource.getName());
-                loadPlaylist(true);
-            }).show();
-        });
-
-        view.findViewById(R.id.btnSettings).setOnClickListener(v -> {
-            SettingMainActivity.setAvailableCategories(allCategories);
-            startActivity(new Intent(requireContext(), SettingMainActivity.class));
-        });
+        View btnRefresh = view.findViewById(R.id.btnRefresh);
+        if (btnRefresh != null) {
+            btnRefresh.setOnClickListener(v -> loadPlaylist(true));
+        }
 
         view.findViewById(R.id.btnEmptyAdd).setOnClickListener(v -> {
             new AddPlaylistDialog(requireActivity(), storageManager, playlistSource -> {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- NEW: ChannelsFragment layout holding categories list, search, and header toolbar -->
+<!-- CHANGED: ChannelsFragment layout updated with activity_home.xml appbar and permanent search bar -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -12,27 +12,20 @@
         android:layout_height="wrap_content"
         android:background="@color/bg_secondary">
 
+        <!-- CHANGED: Replaced old headerbar with activity_home.xml style topBar -->
         <LinearLayout
-            android:id="@+id/headerbar"
+            android:id="@+id/topBar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="25dp"
+            android:layout_height="56dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/icon" />
+            android:paddingHorizontal="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -40,10 +33,9 @@
                     android:id="@+id/tvAppTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:text="@string/app_name"
+                    android:text="@string/nav_channels"
                     android:textColor="@color/text_primary"
-                    android:textSize="17sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -57,14 +49,14 @@
                     android:textSize="11sp" />
             </LinearLayout>
 
+            <!-- CHANGED: Commented out btnOpenVod, btnSearchToggle, and btnAddPlaylist per request -->
+            <!--
             <ImageButton
                 android:id="@+id/btnOpenVod"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/desc_movies_series"
-                android:focusable="true"
-                android:padding="8dp"
                 android:src="@drawable/ic_movie"
                 app:tint="@color/brand_blue" />
 
@@ -75,11 +67,21 @@
                 android:layout_marginStart="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/search_channels"
-                android:focusable="true"
-                android:padding="8dp"
                 android:src="@drawable/ic_search"
                 app:tint="@color/text_primary" />
 
+            <ImageButton
+                android:id="@+id/btnAddPlaylist"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/add_playlist"
+                android:src="@drawable/ic_add"
+                app:tint="@color/text_primary" />
+            -->
+
+            <!-- NEW: Refresh button to reload active playlist -->
             <ImageButton
                 android:id="@+id/btnRefresh"
                 android:layout_width="40dp"
@@ -90,22 +92,37 @@
                 android:focusable="true"
                 android:padding="8dp"
                 android:src="@drawable/ic_refresh"
-                app:tint="@color/text_primary" />
+                app:tint="@color/text_secondary" />
 
+            <!-- NEW: Cast button from activity_home appbar -->
             <ImageButton
-                android:id="@+id/btnAddPlaylist"
+                android:id="@+id/btnCast"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="4dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/add_playlist"
+                android:contentDescription="@string/cast"
                 android:focusable="true"
                 android:padding="8dp"
-                android:src="@drawable/ic_add"
-                app:tint="@color/text_primary" />
+                android:src="@drawable/ic_cast_screen"
+                app:tint="@color/text_secondary" />
 
+            <!-- NEW: Help button from activity_home appbar -->
             <ImageButton
-                android:id="@+id/btnSettings"
+                android:id="@+id/btnHelp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/desc_help"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_help"
+                app:tint="@color/text_secondary" />
+
+            <!-- NEW: Settings button from activity_home appbar -->
+            <ImageButton
+                android:id="@+id/btnHomeSettings"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="4dp"
@@ -114,9 +131,10 @@
                 android:focusable="true"
                 android:padding="8dp"
                 android:src="@drawable/ic_settings"
-                app:tint="@color/text_primary" />
+                app:tint="@color/text_secondary" />
         </LinearLayout>
 
+        <!-- CHANGED: Permanently visible search bar (android:visibility="visible") -->
         <LinearLayout
             android:id="@+id/layoutSearch"
             android:layout_width="match_parent"
@@ -126,7 +144,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="10dp"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <RelativeLayout
                 android:layout_width="match_parent"

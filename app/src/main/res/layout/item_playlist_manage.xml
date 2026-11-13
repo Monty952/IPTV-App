@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_card_selector" android:padding="12dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginBottom="4dp" android:layout_marginVertical="4dp">
+    <ImageView android:id="@+id/ivSourceTypeIcon" android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_link" android:contentDescription="@string/type"/>
+    <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp">
+        <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvSourceName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/playlist_name" android:maxLines="1"/>
+        <TextView android:textSize="11sp" android:textColor="@color/text_secondary" android:id="@+id/tvSourceInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/sample_m3u_format_channels_lower"/>
+    </LinearLayout>
+    <ImageView android:id="@+id/ivActiveSourceCheck" android:visibility="gone" android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_play" android:contentDescription="@string/active" android:layout_marginStart="6dp"/>
+    <ImageButton android:id="@+id/btnDeleteSource" android:background="?attr/selectableItemBackgroundBorderless" android:padding="6dp" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_delete" android:contentDescription="@string/delete_playlist" android:layout_marginStart="6dp"/>
+</LinearLayout>

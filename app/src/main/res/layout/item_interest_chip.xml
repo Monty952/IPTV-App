@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/chipRoot" android:background="@drawable/bg_interest_pill_unselected" android:paddingTop="12dp" android:paddingBottom="12dp" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:paddingStart="16dp" android:paddingEnd="18dp" android:layout_marginEnd="10dp">
+    <ImageView android:id="@+id/ivCheckmark" android:visibility="gone" android:layout_width="18dp" android:layout_height="18dp" android:src="@drawable/ic_checkmark" android:contentDescription="@string/desc_selected" android:layout_marginEnd="8dp"/>
+    <TextView android:textSize="18sp" android:id="@+id/tvEmoji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp"/>
+    <TextView android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium"/>
+</LinearLayout>

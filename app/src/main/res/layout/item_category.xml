@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/cardCategory" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:layout_marginTop="5dp" android:layout_marginRight="12dp" android:layout_marginBottom="5dp" android:foreground="?attr/selectableItemBackground" android:layout_marginHorizontal="12dp" android:layout_marginVertical="5dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="14dp" app:cardElevation="2dp">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="14dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:gravity="center" android:background="@drawable/bg_badge_count" android:layout_width="44dp" android:layout_height="44dp">
+            <ImageView android:id="@+id/ivCategoryIcon" android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_folder" android:contentDescription="@string/desc_category_icon" app:tint="@color/brand_blue"/>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvCategoryName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/category_name_placeholder" android:maxLines="1"/>
+                <ImageView android:id="@+id/ivCategoryLock" android:visibility="gone" android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_lock" android:contentDescription="@string/parental_control" android:layout_marginStart="6dp"/>
+            </LinearLayout>
+            <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:id="@+id/tvCategoryCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/zero_channels"/>
+        </LinearLayout>
+        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_arrow_forward" android:contentDescription="@string/desc_open_category" app:tint="@color/text_secondary"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

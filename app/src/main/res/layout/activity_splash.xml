@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/splash_main" android:background="@drawable/splash_bg_gradient" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:paddingBottom="80dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:background="@drawable/bg_icon_container" android:layout_width="140dp" android:layout_height="140dp">
+            <ImageView android:layout_gravity="center" android:layout_width="130dp" android:layout_height="130dp" android:src="@drawable/icon" android:contentDescription="@string/app_icon_desc"/>
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+            <TextView android:textSize="28sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+        <TextView android:textSize="15sp" android:textColor="@color/text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/tagline" android:fontFamily="sans-serif"/>
+    </LinearLayout>
+    <ProgressBar android:layout_gravity="bottom|center_horizontal" android:id="@+id/splashProgressBar" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="120dp" android:indeterminateTint="@color/splash_purple" style="?android:attr/progressBarStyle"/>
+    <FrameLayout android:layout_gravity="bottom|center_horizontal" android:id="@+id/llAdsView" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</FrameLayout>

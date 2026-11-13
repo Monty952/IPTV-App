@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="24dp" app:cardElevation="6dp" app:strokeColor="@color/divider_color" app:strokeWidth="1dp">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:padding="24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:gravity="center" android:background="@drawable/bg_delete_icon_circle" android:layout_width="64dp" android:layout_height="64dp">
+            <ImageView android:id="@+id/ivDeleteIcon" android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_delete" android:contentDescription="@string/delete_playlist" app:tint="@color/live_red"/>
+        </RelativeLayout>
+        <TextView android:textSize="20sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/delete_playlist_title"/>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_mock_input" android:padding="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+            <ImageView android:id="@+id/ivDeleteSourceIcon" android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_link" android:contentDescription="@string/desc_source_icon" app:tint="@color/live_red"/>
+            <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp">
+                <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvDeleteSourceName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/playlist_name" android:maxLines="1"/>
+                <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:id="@+id/tvDeleteSourceInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/sample_channels_count"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:textSize="13sp" android:textColor="@color/text_secondary" android:gravity="center" android:id="@+id/tvDeleteWarning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="@string/delete_playlist_confirm_detailed" android:lineSpacingExtra="2dp"/>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="22dp">
+            <com.google.android.material.button.MaterialButton android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/btnCancelDelete" android:layout_width="0dp" android:layout_height="48dp" android:text="@string/cancel" android:layout_weight="1" android:textAllCaps="false" android:layout_marginEnd="8dp" app:cornerRadius="14dp" app:strokeColor="@color/divider_color" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            <com.google.android.material.button.MaterialButton android:textSize="14sp" android:textStyle="bold" android:textColor="@color/white" android:id="@+id/btnConfirmDelete" android:layout_width="0dp" android:layout_height="48dp" android:text="@string/delete" android:layout_weight="1" android:textAllCaps="false" android:layout_marginStart="8dp" android:backgroundTint="@color/live_red" app:cornerRadius="14dp" app:icon="@drawable/ic_delete" app:iconTint="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

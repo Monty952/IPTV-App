@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:height="120dp" android:width="120dp" android:viewportWidth="120" android:viewportHeight="120">
+    <path android:fillColor="@drawable/res_0x7f080006_ic_iptv_logo__0" android:pathData="M20,15h80a15,15 0 0,1 15,15v60a15,15 0 0,1 -15,15h-80a15,15 0 0,1 -15,-15v-60a15,15 0 0,1 15,-15z"/>
+    <path android:fillColor="@color/white" android:pathData="M48,38l34,22 -34,22z"/>
+</vector>

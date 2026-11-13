@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="150dp" android:width="280dp" android:viewportWidth="280" android:viewportHeight="150">
+    <path android:fillColor="#f1f5f9" android:pathData="M30,15 L250,15 C261,15 270,24 270,35 L270,115 C270,126 261,135 250,135 L30,135 C19,135 10,126 10,115 L10,35 C10,24 19,15 30,15 Z" android:strokeColor="#e2e8f0" android:strokeWidth="1.5"/>
+    <path android:fillColor="#ffffff" android:pathData="M35,42 L85,42 C88,42 90,44 90,47 L90,82 C90,85 88,87 85,87 L35,87 C32,87 30,85 30,82 L30,47 C30,44 32,42 35,42 Z" android:strokeColor="#1d8bf1" android:strokeWidth="2.5"/>
+    <path android:pathData="M44,87 L38,94 M76,87 L82,94" android:strokeColor="#1d8bf1" android:strokeWidth="2.5" android:strokeLineCap="round"/>
+    <path android:fillColor="#1d8bf1" android:pathData="M52,78 m-2,0 a2,2 0 1,1 4,0 a2,2 0 1,1 -4,0"/>
+    <path android:fillColor="#00000000" android:pathData="M48,72 C52,68 62,68 66,72" android:strokeColor="#1d8bf1" android:strokeWidth="2.5" android:strokeLineCap="round"/>
+    <path android:fillColor="#00000000" android:pathData="M44,66 C50,58 66,58 72,66" android:strokeColor="#1d8bf1" android:strokeWidth="2.5" android:strokeLineCap="round"/>
+    <path android:pathData="M102,52 L175,52" android:strokeColor="#0f172a" android:strokeWidth="4" android:strokeLineCap="round"/>
+    <path android:pathData="M102,68 L170,68" android:strokeColor="#94a3b8" android:strokeWidth="2.5" android:strokeLineCap="round"/>
+    <path android:pathData="M102,78 L155,78" android:strokeColor="#94a3b8" android:strokeWidth="2.5" android:strokeLineCap="round"/>
+    <path android:fillColor="#1d8bf1" android:pathData="M200,48 L228,48 C236,48 242,54 242,62 C242,70 236,76 228,76 L200,76 C192,76 186,70 186,62 C186,54 192,48 200,48 Z"/>
+    <path android:fillColor="#ffffff" android:pathData="M228,62 m-11,0 a11,11 0 1,1 22,0 a11,11 0 1,1 -22,0"/>
+    <path android:fillColor="#ffffff" android:pathData="M228,78 L228,66 C228,64 226,62 224,62 C222,62 220,64 220,66 L220,90 L216,84 C214,81 210,81 208,83 C206,85 206,89 208,92 L216,104 C219,108 223,111 228,111 L238,111 C244,111 249,106 249,100 L249,88 C249,85 247,83 244,83 C242,83 241,84 240,86 L240,83 C240,80 238,78 235,78 C234,78 233,79 232,80 L232,78 Z" android:strokeColor="#0f172a" android:strokeWidth="2" android:strokeLineJoin="round"/>
+</vector>

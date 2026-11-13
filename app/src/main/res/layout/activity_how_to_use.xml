@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/bg_primary"
+        android:paddingHorizontal="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageButton
+            android:id="@+id/btnHowBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:visibility="gone"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/how_to_use_title"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <LinearLayout
+                android:id="@+id/tabImportUrl"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivTabUrlIcon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_globe"
+                        app:tint="@color/purple_500" />
+
+                    <TextView
+                        android:id="@+id/tvTabUrlTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/how_tab_import_url"
+                        android:textColor="@color/purple_500"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorTabUrl"
+                    android:layout_width="32dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_tab_indicator" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabUploadFile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivTabFileIcon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_doc"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvTabFileTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/how_tab_upload_file"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorTabFile"
+                    android:layout_width="32dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_tab_indicator"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabStream"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivTabStreamIcon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_broadcast"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvTabStreamTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/tab_stream"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorTabStream"
+                    android:layout_width="32dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_tab_indicator"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tabCast"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="85dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivTabCastIcon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_cast_screen"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvTabCastTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/tab_cast_to_tv"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorTabCast"
+                    android:layout_width="32dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_tab_indicator"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/contentImportUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_1"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_find_m3u_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_find_m3u_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_2"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_copy_link_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_copy_link_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/bg_mock_input"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="10dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/tab_url"
+                                        android:textColor="@color/purple_accent"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_weight="1"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:text="@string/how_sample_url"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/llAdsView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_3"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_import_url_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_import_url_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/bg_dialog_rounded"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/playlist_name"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="6dp"
+                                        android:background="@drawable/bg_mock_input"
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:text="@string/how_sample_playlist_name"
+                                            android:textColor="@color/text_primary"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/ic_clear"
+                                            app:tint="@color/text_secondary" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="@string/how_label_single_url"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="6dp"
+                                        android:background="@drawable/bg_mock_input"
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_toStartOf="@+id/ivClearUrl1"
+                                            android:ellipsize="end"
+                                            android:maxLines="1"
+                                            android:text="@string/sample_iptv_org_truncated"
+                                            android:textColor="@color/text_primary"
+                                            android:textSize="13sp" />
+
+                                        <ImageView
+                                            android:id="@+id/ivClearUrl1"
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/ic_clear"
+                                            app:tint="@color/text_secondary" />
+                                    </RelativeLayout>
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="48dp"
+                                        android:layout_marginTop="16dp"
+                                        android:backgroundTint="@color/purple_500"
+                                        android:text="@string/how_btn_create_playlist"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white"
+                                        android:textStyle="bold"
+                                        app:cornerRadius="12dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_4"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:text="@string/how_step_enjoy"
+                                android:textColor="@color/purple_500"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/bg_dialog_rounded"
+                            android:paddingHorizontal="16dp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/how_sample_search_public_m3u"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contentUploadFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_1"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_find_m3u_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_find_m3u_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_2"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_download_file_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_download_file_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/bg_dialog_rounded"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableStart="@drawable/ic_device"
+                                        android:drawablePadding="8dp"
+                                        android:text="@string/how_open_github_desktop"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:drawableStart="@drawable/ic_cloud_upload"
+                                        android:drawablePadding="8dp"
+                                        android:text="@string/how_download_zip_file"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/llAdsView1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_3"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_import_url_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_upload_file_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/bg_dialog_rounded"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/playlist_name"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="6dp"
+                                        android:background="@drawable/bg_mock_input"
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:text="@string/how_sample_playlist_name"
+                                            android:textColor="@color/text_primary"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/ic_clear"
+                                            app:tint="@color/text_secondary" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="@string/upload_m3u_file"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="@string/how_accepted_format_m3u"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="11sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="90dp"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/bg_mock_dashed"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
+                                            android:src="@drawable/ic_doc"
+                                            app:tint="@color/purple_500" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="@string/how_sample_file_name"
+                                            android:textColor="@color/purple_500"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="48dp"
+                                        android:layout_marginTop="16dp"
+                                        android:backgroundTint="@color/purple_500"
+                                        android:text="@string/how_tab_upload_file"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white"
+                                        android:textStyle="bold"
+                                        app:cornerRadius="12dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_4"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:text="@string/how_step_enjoy"
+                                android:textColor="@color/purple_500"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/bg_dialog_rounded"
+                            android:paddingHorizontal="16dp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/how_sample_search_public_m3u"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contentStream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_1"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_find_m3u_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_find_m3u_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_2"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_copy_stream_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_copy_stream_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/llAdsView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_3"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_import_url_title"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_import_stream_desc"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:background="@drawable/bg_dialog_rounded"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/label_name"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="6dp"
+                                        android:background="@drawable/bg_mock_input"
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:text="@string/how_sample_stream_name"
+                                            android:textColor="@color/text_primary"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_centerVertical="true"
+                                            android:src="@drawable/ic_clear"
+                                            app:tint="@color/text_secondary" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="12dp"
+                                        android:text="@string/how_label_single_url"
+                                        android:textColor="@color/text_primary"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:layout_marginTop="6dp"
+                                        android:background="@drawable/bg_mock_input"
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingLeft="12dp"
+                                        android:paddingRight="12dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:text="@string/vertical_bar"
+                                            android:textColor="@color/purple_500"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="@string/how_supported_stream_protocols"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="11sp" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="48dp"
+                                        android:layout_marginTop="16dp"
+                                        android:backgroundTint="@color/purple_500"
+                                        android:text="@string/play_now"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white"
+                                        android:textStyle="bold"
+                                        app:cornerRadius="12dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="12dp"
+                                        android:text="@string/how_btn_add_video_stream"
+                                        android:textColor="@color/purple_500"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_4"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:text="@string/how_step_enjoy"
+                                android:textColor="@color/purple_500"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/bg_dialog_rounded"
+                            android:paddingHorizontal="16dp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/how_sample_search_stream_url"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/ic_search"
+                                app:tint="@color/text_secondary" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contentCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_1"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_title_1"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_sub_1"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="140dp"
+                                    android:layout_marginTop="12dp"
+                                    android:contentDescription="@string/how_step_title_1"
+                                    android:src="@drawable/illustration_how_to_use_devices" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/llAdsView3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_2"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_title_2"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_sub_2"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="120dp"
+                                    android:layout_marginTop="12dp"
+                                    android:contentDescription="@string/how_step_title_2"
+                                    android:src="@drawable/illustration_how_to_use_step2" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/divider_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/bg_step_circle"
+                                android:gravity="center"
+                                android:text="@string/num_3"
+                                android:textColor="@color/purple_accent"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/how_step_title_3"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:text="@string/how_step_sub_3"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnHowCastNow"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="48dp"
+                                    android:layout_marginTop="16dp"
+                                    android:backgroundTint="@color/purple_500"
+                                    android:text="@string/home_card_cast_phone_title"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    app:cornerRadius="12dp"
+                                    app:icon="@drawable/ic_cast_screen"
+                                    app:iconGravity="textStart"
+                                    app:iconTint="@color/white" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

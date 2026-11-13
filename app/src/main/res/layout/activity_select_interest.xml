@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/interest_root" android:background="@color/app_bg" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/headerContainer" android:paddingTop="5dp" android:paddingBottom="5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:paddingStart="24dp" android:paddingEnd="24dp">
+        <TextView android:textSize="30sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/choose_your_interests" android:lineSpacingExtra="4dp" android:fontFamily="sans-serif-medium"/>
+        <TextView android:textSize="15sp" android:textColor="@color/text_secondary" android:id="@+id/tvSubtitle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/interests_subtitle"/>
+    </LinearLayout>
+    <ScrollView android:id="@+id/scrollView" android:paddingTop="8dp" android:paddingBottom="24dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/bottomBarContainer" android:layout_below="@+id/headerContainer" android:paddingStart="20dp" android:paddingEnd="20dp">
+        <com.iptv.online.player.live.tv.smart.FlowLayout android:id="@+id/flowInterests" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/bottomBarContainer" android:background="@color/app_bg" android:paddingBottom="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="185dp" android:weightSum="2" android:layout_alignParentBottom="true" android:paddingStart="20dp" android:paddingEnd="20dp">
+        <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_primary" android:gravity="center" android:id="@+id/btnSkip" android:background="@drawable/bg_btn_skip" android:focusable="true" android:clickable="true" android:layout_width="0dp" android:layout_height="52dp" android:text="@string/btn_skip" android:layout_weight="1" android:fontFamily="sans-serif-medium" android:layout_marginEnd="8dp"/>
+        <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:id="@+id/btnNext" android:background="@drawable/bg_btn_purple_gradient" android:focusable="true" android:clickable="true" android:layout_width="0dp" android:layout_height="52dp" android:text="@string/btn_next" android:layout_weight="1" android:fontFamily="sans-serif-medium" android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="185dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/llAdsView" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</RelativeLayout>

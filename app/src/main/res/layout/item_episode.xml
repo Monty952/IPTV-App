@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/cardEpisode" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+    <LinearLayout android:orientation="horizontal" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="120dp" android:layout_height="75dp">
+            <ImageView android:id="@+id/ivEpisodeThumb" android:background="@color/bg_channel_thumb" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/ic_series" android:scaleType="centerCrop"/>
+            <ImageView android:background="@drawable/bg_circle_ir_glow" android:padding="6dp" android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_play" android:layout_centerInParent="true" app:tint="@color/white"/>
+            <TextView android:textSize="9sp" android:textColor="@color/white" android:id="@+id/tvEpisodeDuration" android:background="#99000000" android:paddingTop="1dp" android:paddingBottom="1dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="4dp" android:text="@string/sample_duration_45" android:layout_alignParentBottom="true" android:paddingStart="4dp" android:paddingEnd="4dp" android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp">
+            <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvEpisodeNumberTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/sample_episode_title" android:maxLines="1"/>
+            <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:ellipsize="end" android:id="@+id/tvEpisodePlot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/sample_episode_synopsis" android:maxLines="2"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

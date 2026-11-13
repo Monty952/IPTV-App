@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@color/bg_card" android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_playlist"/>
+        <com.google.android.material.button.MaterialButtonToggleGroup android:id="@+id/toggleSourceType" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" app:checkedButton="@+id/btnTypeM3U" app:selectionRequired="true" app:singleSelection="true">
+            <com.google.android.material.button.MaterialButton android:textColor="@color/text_primary" android:id="@+id/btnTypeM3U" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/add_m3u_url" android:layout_weight="1" android:textAllCaps="false" app:icon="@drawable/ic_link" app:iconTint="@color/purple_accent" app:strokeColor="@color/divider_color" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            <com.google.android.material.button.MaterialButton android:textColor="@color/text_primary" android:id="@+id/btnTypeXtream" android:visibility="gone" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/add_xtream" android:layout_weight="1" android:textAllCaps="false" app:icon="@drawable/ic_server" app:iconTint="@color/cyan_accent" app:strokeColor="@color/divider_color" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:hint="@string/playlist_name" app:boxBackgroundColor="@color/bg_secondary" app:boxStrokeColor="@color/purple_500" app:hintTextColor="@color/purple_accent">
+            <com.google.android.material.textfield.TextInputEditText android:textColor="@color/text_primary" android:id="@+id/etPlaylistName" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapWords"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/layoutM3UFields" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" app:boxBackgroundColor="@color/bg_secondary" app:boxStrokeColor="@color/purple_500" app:hintTextColor="@color/purple_accent">
+                <com.google.android.material.textfield.TextInputEditText android:textColor="@color/text_primary" android:id="@+id/etM3UUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/url_hint"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@+id/layoutXtreamFields" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:hint="@string/server_url" app:boxBackgroundColor="@color/bg_secondary" app:boxStrokeColor="@color/cyan_accent" app:hintTextColor="@color/cyan_light">
+                <com.google.android.material.textfield.TextInputEditText android:textColor="@color/text_primary" android:id="@+id/etXtreamServer" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/sample_server_url_hint" android:inputType="textUri"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:hint="@string/username" app:boxBackgroundColor="@color/bg_secondary" app:boxStrokeColor="@color/cyan_accent" app:hintTextColor="@color/cyan_light">
+                <com.google.android.material.textfield.TextInputEditText android:textColor="@color/text_primary" android:id="@+id/etXtreamUser" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:hint="@string/password" app:boxBackgroundColor="@color/bg_secondary" app:boxStrokeColor="@color/cyan_accent" app:hintTextColor="@color/cyan_light" app:passwordToggleEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:textColor="@color/text_primary" android:id="@+id/etXtreamPassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:textColor="@color/cyan_light" android:id="@+id/btnQuickDemo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/load_demo" app:icon="@drawable/ic_tv" app:iconTint="@color/cyan_light" style="@style/Widget.MaterialComponents.Button.TextButton"/>
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp">
+            <com.google.android.material.button.MaterialButton android:textColor="@color/text_secondary" android:id="@+id/btnCancelAdd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel" style="@style/Widget.MaterialComponents.Button.TextButton"/>
+            <com.google.android.material.button.MaterialButton android:textColor="@color/white" android:id="@+id/btnSavePlaylist" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/save" android:layout_marginStart="8dp" android:backgroundTint="@color/purple_500" app:cornerRadius="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

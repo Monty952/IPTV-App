@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/age_root" android:background="@color/app_bg" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/topBar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:paddingStart="20dp" android:paddingEnd="20dp">
+        <TextView android:textSize="22sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/select_age" android:layout_centerVertical="true" android:fontFamily="sans-serif-medium" android:layout_alignParentStart="true"/>
+        <ProgressBar android:id="@+id/progressBarCheck" android:visibility="gone" android:layout_width="32dp" android:layout_height="32dp" android:layout_centerVertical="true" android:layout_alignParentEnd="true" android:indeterminateTint="@color/splash_purple" style="?android:attr/progressBarStyle"/>
+        <ImageView android:id="@+id/btnCheckmark" android:background="@drawable/bg_circle_purple" android:padding="8dp" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_checkmark" android:layout_centerVertical="true" android:contentDescription="@string/confirm_age" android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <ScrollView android:id="@+id/scrollView" android:paddingBottom="20dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="265dp" android:fillViewport="true" android:layout_below="@+id/topBar">
+        <LinearLayout android:orientation="vertical" android:id="@+id/ageListContainer" android:paddingTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="16dp"/>
+    </ScrollView>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="265dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/llAdsView" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</RelativeLayout>

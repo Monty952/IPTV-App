@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/cardVodPoster" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="6dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="0dp" android:minHeight="210dp" android:layout_weight="1">
+            <ImageView android:id="@+id/ivVodPoster" android:padding="15dp" android:layout_width="match_parent" android:layout_height="210dp" android:layout_marginTop="25dp" android:src="@drawable/ic_movie" android:scaleType="fitCenter"/>
+            <View android:background="@drawable/bg_hero_gradient" android:visibility="gone" android:layout_width="match_parent" android:layout_height="60dp" android:layout_alignParentBottom="true"/>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/layoutRatingBadge" android:background="@drawable/bg_badge_count" android:paddingTop="2dp" android:paddingBottom="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="6dp" android:paddingStart="6dp" android:paddingEnd="6dp" android:layout_alignParentEnd="true">
+                <ImageView android:layout_width="12dp" android:layout_height="12dp" android:src="@drawable/ic_star_amber" android:layout_marginEnd="3dp"/>
+                <TextView android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/tvVodRating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sample_rating_8_2"/>
+            </LinearLayout>
+            <TextView android:textSize="9sp" android:textStyle="bold" android:textColor="@color/white" android:id="@+id/tvVodTypeBadge" android:background="@drawable/bg_badge_live" android:paddingTop="2dp" android:paddingBottom="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="6dp" android:text="@string/sample_badge_movie" android:paddingStart="6dp" android:paddingEnd="6dp" android:layout_alignParentStart="true"/>
+            <ProgressBar android:id="@+id/pbPosterProgress" android:visibility="gone" android:layout_width="match_parent" android:layout_height="4dp" android:progress="45" android:progressDrawable="@drawable/bg_blue_purple_gradient" android:layout_alignParentBottom="true" style="?android:attr/progressBarStyleHorizontal"/>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:background="@color/brand_blue" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="13sp" android:textStyle="bold" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvVodTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/sample_movie_title" android:maxLines="1"/>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3dp">
+                <TextView android:textSize="11sp" android:textColor="@color/text_primary" android:id="@+id/tvVodYear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sample_year_2023"/>
+                <TextView android:textSize="11sp" android:textColor="@color/text_muted" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bullet_dot" android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
+                <TextView android:textSize="11sp" android:textColor="@color/text_primary" android:ellipsize="end" android:id="@+id/tvVodGenre" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/sample_genre_action" android:maxLines="1" android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

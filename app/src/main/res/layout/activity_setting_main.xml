@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@color/bg_primary" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/headerbar" android:background="@color/bg_secondary" android:paddingLeft="12dp" android:paddingRight="12dp" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="25dp" android:paddingHorizontal="12dp">
+        <ImageButton android:id="@+id/btnSettingBack" android:background="?attr/selectableItemBackgroundBorderless" android:padding="8dp" android:focusable="true" android:visibility="gone" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_back" android:contentDescription="@string/back" app:tint="@color/text_primary"/>
+        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp">
+            <TextView android:textSize="17sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/settings"/>
+            <TextView android:textSize="11sp" android:textColor="@color/cyan_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/playlists_parental_control"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView android:paddingLeft="16dp" android:paddingTop="14dp" android:paddingRight="16dp" android:paddingBottom="14dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:paddingHorizontal="16dp" android:paddingVertical="14dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="12sp" android:textStyle="bold" android:textColor="@color/cyan_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="@string/playlist_management" android:layout_marginStart="4dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="2dp" app:strokeColor="@color/divider_color" app:strokeWidth="1dp">
+                <LinearLayout android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/switch_playlist"/>
+                    <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/playlist_management_sub"/>
+                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvPlaylistsList" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:nestedScrollingEnabled="false"/>
+                    <com.google.android.material.button.MaterialButton android:textSize="13sp" android:textStyle="bold" android:textColor="@color/cyan_light" android:id="@+id/btnAddPlaylistSetting" android:layout_width="match_parent" android:layout_height="46dp" android:layout_marginTop="12dp" android:text="@string/add_new_playlist" android:textAllCaps="false" app:cornerRadius="12dp" app:icon="@drawable/ic_add" app:iconTint="@color/cyan_light" app:strokeColor="@color/cyan_accent" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:layout_alignParentBottom="true">
+                <LinearLayout android:orientation="horizontal" android:id="@+id/llAdsView" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <TextView android:textSize="12sp" android:textStyle="bold" android:textColor="@color/purple_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="@string/security_parental_control" android:layout_marginStart="4dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="2dp" app:strokeColor="@color/divider_color" app:strokeWidth="1dp">
+                <LinearLayout android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_lock" android:contentDescription="@string/parental_control" app:tint="@color/purple_accent"/>
+                        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp">
+                            <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/parental_control"/>
+                            <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:id="@+id/tvPinStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/status_parental_disabled"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <com.google.android.material.button.MaterialButton android:textSize="13sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/btnConfigurePin" android:layout_width="match_parent" android:layout_height="46dp" android:layout_marginTop="14dp" android:text="@string/set_pin" android:textAllCaps="false" app:cornerRadius="12dp" app:icon="@drawable/ic_lock" app:iconTint="@color/brand_blue" app:strokeColor="@color/divider_color" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                    <com.google.android.material.button.MaterialButton android:textSize="13sp" android:textStyle="bold" android:textColor="@color/text_primary" android:id="@+id/btnManageLockedCategories" android:layout_width="match_parent" android:layout_height="46dp" android:layout_marginTop="8dp" android:text="@string/lock_unlock_specific_categories" android:textAllCaps="false" app:cornerRadius="12dp" app:strokeColor="@color/divider_color" style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                    <com.google.android.material.button.MaterialButton android:textSize="13sp" android:textColor="@color/live_red" android:id="@+id/btnDisablePin" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/disable_parental_control" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView android:textSize="12sp" android:textStyle="bold" android:textColor="@color/text_muted" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="@string/app_preferences" android:layout_marginStart="4dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="2dp" app:strokeColor="@color/divider_color" app:strokeWidth="1dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/settingRowTheme" android:background="?attr/selectableItemBackground" android:padding="16dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_theme_mode" app:tint="@color/brand_blue"/>
+                        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp">
+                            <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/theme_mode"/>
+                            <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:id="@+id/tvCurrentThemeSubtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/theme_light_default"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_arrow_forward" app:tint="@color/text_muted"/>
+                    </LinearLayout>
+                    <View android:background="@color/divider_color" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginHorizontal="16dp"/>
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/settingRowLanguage" android:background="?attr/selectableItemBackground" android:padding="16dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_language" app:tint="@color/brand_blue"/>
+                        <LinearLayout android:orientation="vertical" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp">
+                            <TextView android:textSize="14sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_language"/>
+                            <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:id="@+id/tvCurrentLanguageSubtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/lang_english_default"/>
+                        </LinearLayout>
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_arrow_forward" app:tint="@color/text_muted"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView android:textSize="12sp" android:textStyle="bold" android:textColor="@color/text_muted" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="@string/engine_acceleration" android:layout_marginStart="4dp"/>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp" app:cardBackgroundColor="@color/bg_card" app:cardCornerRadius="16dp" app:cardElevation="2dp" app:strokeColor="@color/divider_color" app:strokeWidth="1dp">
+                <LinearLayout android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="13sp" android:textStyle="bold" android:textColor="@color/text_primary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/engine_exoplayer_version"/>
+                    <TextView android:textSize="12sp" android:textColor="@color/text_secondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/engine_features_detailed"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

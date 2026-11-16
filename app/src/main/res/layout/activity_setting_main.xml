@@ -27,7 +27,7 @@
             android:focusable="true"
             android:padding="8dp"
             android:src="@drawable/ic_back"
-            android:visibility="gone"
+            android:visibility="visible"
             app:tint="@color/text_primary" />
 
         <LinearLayout

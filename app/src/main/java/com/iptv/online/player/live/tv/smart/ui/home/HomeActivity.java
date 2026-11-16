@@ -161,14 +161,14 @@ public class HomeActivity extends CustomActivity {
         this.tvNavHomeLabel = (TextView) findViewById(R.id.tvNavHomeLabel);
         this.ivNavChannelsIcon = (android.widget.ImageView) findViewById(R.id.ivNavChannelsIcon);
         this.tvNavChannelsLabel = (TextView) findViewById(R.id.tvNavChannelsLabel);
-        findViewById(R.id.btnHomeVod).setOnClickListener(new View.OnClickListener() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda23
+      /*  findViewById(R.id.btnHomeVod).setOnClickListener(new View.OnClickListener() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda23
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 HomeActivity.this.lambda$initViews$1(view);
                 Log.d("TAG", "onClick: btnHomeVod");
 
             }
-        });
+        });*/
         findViewById(R.id.btnCast).setOnClickListener(new View.OnClickListener() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda24
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -514,12 +514,12 @@ public class HomeActivity extends CustomActivity {
                 HomeActivity.this.lambda$setupActionMenu$22(view);
             }
         });
-        findViewById(R.id.btnActionVod).setOnClickListener(new View.OnClickListener() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda21
+        /*findViewById(R.id.btnActionVod).setOnClickListener(new View.OnClickListener() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda21
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 HomeActivity.this.lambda$setupActionMenu$23(view);
             }
-        });
+        });*/
     }
 
     /* JADX INFO: Access modifiers changed from: private */

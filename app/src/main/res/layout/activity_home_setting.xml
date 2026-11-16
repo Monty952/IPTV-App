@@ -25,7 +25,7 @@
             android:focusable="true"
             android:padding="10dp"
             android:src="@drawable/ic_back"
-            android:visibility="gone"
+            android:visibility="visible"
             app:tint="@color/text_primary" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -91,7 +91,7 @@
                         android:textColor="#e0f2fe"
                         android:textSize="12sp" />
                 </LinearLayout>
-            </LinearLayout>
+            </LinearLayout>-->
 
             <TextView
                 android:layout_width="wrap_content"

@@ -51,6 +51,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import android.database.Cursor;
+import android.provider.OpenableColumns;
+import com.iptv.online.player.live.tv.smart.ui.vod.VodPlayerActivity;
+
 @SuppressWarnings("all")
 
 /* loaded from: classes5.dex */
@@ -85,6 +90,19 @@ public class HomeActivity extends CustomActivity {
             HomeActivity.this.handlePickedFileUri((Uri) obj);
         }
     });
+
+    // NEW: ActivityResultLauncher for picking a video file from device storage
+    private final ActivityResultLauncher<String> videoPickerLauncher = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    if (uri != null) {
+                        HomeActivity.this.playDeviceVideo(uri);
+                    }
+                }
+            }
+    );
     private final ActivityResultLauncher<String> notificationPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback() { // from class: com.iptv.online.player.live.tv.smart.ui.home.HomeActivity$$ExternalSyntheticLambda5
         @Override // androidx.activity.result.ActivityResultCallback
         public final void onActivityResult(Object obj) {
@@ -561,9 +579,12 @@ public class HomeActivity extends CustomActivity {
     public /* synthetic */ void lambda$setupActionMenu$20(View view) {
         closeActionMenu();
         try {
-            this.filePickerLauncher.launch("*/*");
+            //New Code
+            this. videoPickerLauncher.launch("video/*");
+//            this.filePickerLauncher.launch("*/*");
         } catch (Exception e) {
-            Toast.makeText(this, getString(R.string.err_open_file_picker, new Object[]{e.getMessage()}), 0).show();
+            Toast.makeText(this, getString(R.string.err_open_file_picker,
+                    new Object[]{e.getMessage()}), 0).show();
         }
         showTabScrollInterstitialAds();
     }
@@ -854,4 +875,40 @@ public class HomeActivity extends CustomActivity {
     public void onBackPressed() {
         handleAppExitBackPress();
     }
+
+    // NEW: Open the selected video in the player with full controls (play/pause, seekbar, aspect ratio)
+    private void playDeviceVideo(Uri uri) {
+        if (uri == null) return;
+        // NEW: Get the real file name (e.g. "my_movie.mp4") to display on the player title
+        String videoTitle = getFileNameFromUri(uri);
+        // NEW: Launch VodPlayerActivity (the video-on-demand player equipped with scrub bar & controls)
+        Intent intent = new Intent(this, VodPlayerActivity.class);
+        intent.putExtra(VodPlayerActivity.EXTRA_STREAM_URL, uri.toString());
+        intent.putExtra(VodPlayerActivity.EXTRA_TITLE, videoTitle);
+        intent.putExtra(VodPlayerActivity.EXTRA_SUBTITLE, "Device Video");
+
+        // IMPORTANT: Forward read permission for the content:// URI so the player can read the file
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
+    }
+    // NEW: Extract the friendly display name of the file from its content Uri
+    private String getFileNameFromUri(Uri uri) {
+        String displayName = null;
+        if ("content".equals(uri.getScheme())) {
+            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    int index = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (index != -1) {
+                        displayName = cursor.getString(index);
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+        if (displayName == null) {
+            displayName = uri.getLastPathSegment();
+        }
+        return displayName != null ? displayName : "Device Video";
+    }
+
+
 }

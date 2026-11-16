@@ -1,8 +1,11 @@
 package com.iptv.online.player.live.tv.smart.ui.player;
 
+import android.app.AppOpsManager;
 import android.app.PictureInPictureParams;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.net.Uri;
@@ -10,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Rational;
@@ -545,7 +549,84 @@ public class PlayerActivity extends com.iptv.online.player.live.tv.smart.AdsPack
         this.rvDrawerChannels.scrollToPosition(indexOf);
     }
 
+    // New Code
+    // NEW: Checks if Picture-in-Picture permission is currently allowed in Android System Settings
+    private boolean isPipAllowed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            AppOpsManager appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+            if (appOpsManager != null) {
+                int mode = appOpsManager.checkOpNoThrow(
+                        AppOpsManager.OPSTR_PICTURE_IN_PICTURE,
+                        getApplicationInfo().uid,
+                        getPackageName()
+                );
+                return mode == AppOpsManager.MODE_ALLOWED;
+            }
+        }
+        return false;
+    }
+    // NEW: Shows an AlertDialog guiding the user to turn on PiP in system Settings
+    private void showPipSettingsDialog() {
+        new AlertDialog.Builder(this, R.style.CustomDialogTheme)
+                .setTitle("Picture-in-Picture Disabled")
+                .setMessage("Picture-in-Picture is turned off in Settings. Please turn it on to watch live channels in a floating window.")
+                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        openPipSettings();
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+    // NEW: Opens the Android System Settings page directly for Picture-in-Picture for this app
+    private void openPipSettings() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            try {
+                // Try opening the app's PiP settings directly
+                Intent intent = new Intent("android.settings.PICTURE_IN_PICTURE_SETTINGS",
+                        Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+            } catch (Exception e) {
+                try {
+                    // Fallback to app details page if OEM customized the settings screen
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.parse("package:" + getPackageName()));
+                    startActivity(intent);
+                } catch (Exception ex) {
+                    Toast.makeText(this, "Unable to open Settings", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+    // CHANGED: Now verifies device support AND system permission before entering PiP
     private void enterPipMode() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Check if device hardware actually supports PiP
+            if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
+                Toast.makeText(this, "Picture-in-Picture is not supported on this device", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // Check if user turned off PiP in Android system settings
+            if (!isPipAllowed()) {
+                showPipSettingsDialog();
+                return;
+            }
+            hideControls();
+            try {
+                PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
+                builder.setAspectRatio(new Rational(16, 9));
+                enterPictureInPictureMode(builder.build());
+            } catch (Exception e) {
+                Toast.makeText(this, "Failed to enter Picture-in-Picture", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+        Toast.makeText(this, R.string.msg_pip_requires_android_8, Toast.LENGTH_SHORT).show();
+    }
+
+    // Old Code
+  /*  private void enterPipMode() {
         if (Build.VERSION.SDK_INT >= 26) {
             hideControls();
             PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
@@ -555,7 +636,7 @@ public class PlayerActivity extends com.iptv.online.player.live.tv.smart.AdsPack
             return;
         }
         Toast.makeText(this, R.string.msg_pip_requires_android_8, 0).show();
-    }
+    }*/
 
     private void toggleOrientation() {
         if (getResources().getConfiguration().orientation == 2) {

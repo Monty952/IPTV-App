@@ -3,6 +3,7 @@ package com.iptv.online.player.live.tv.smart.ui.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -135,14 +136,46 @@ public class AddPlaylistDialog extends Dialog {
         if (trim.isEmpty()) {
             trim = this.isM3UType ? "M3U Playlist" : "Xtream Account";
         }
+        // New Code
         if (this.isM3UType) {
+            String m3uUrl = this.etM3UUrl.getText().toString().trim();
+
+            // 1. Check if the URL field is completely empty
+            if (m3uUrl.isEmpty()) {
+                this.etM3UUrl.setError(getContext().getString(R.string.err_enter_valid_m3u_url));
+                this.etM3UUrl.requestFocus();
+                Toast.makeText(getContext(), getContext().getString(R.string.err_enter_valid_m3u_url),
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // 2. Validation - Must start with http:// or https:// protocol scheme
+            if (!m3uUrl.startsWith("http://") && !m3uUrl.startsWith("https://")) {
+                this.etM3UUrl.setError("URL must start with http:// or https://");
+                this.etM3UUrl.requestFocus();
+                Toast.makeText(getContext(), "URL must start with http:// or https://", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // 3.  Validation - Must match a valid web URL format (no invalid spaces, valid domain/IP)
+            if (!Patterns.WEB_URL.matcher(m3uUrl).matches()) {
+                this.etM3UUrl.setError(getContext().getString(R.string.err_enter_valid_m3u_url));
+                this.etM3UUrl.requestFocus();
+                Toast.makeText(getContext(), getContext().getString(R.string.err_enter_valid_m3u_url), Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // Clear any previously displayed error once validation passes
+            this.etM3UUrl.setError(null);
+            createXtreamSource = PlaylistSource.createM3USource(trim, m3uUrl);
+        }
+        // Old Code
+       /* if (this.isM3UType) {
             String trim2 = this.etM3UUrl.getText().toString().trim();
             if (trim2.isEmpty()) {
                 Toast.makeText(getContext(), getContext().getString(R.string.err_enter_valid_m3u_url), 0).show();
                 return;
             }
             createXtreamSource = PlaylistSource.createM3USource(trim, trim2);
-        } else {
+        }*/
+        else {
             String trim3 = this.etXtreamServer.getText().toString().trim();
             String trim4 = this.etXtreamUser.getText().toString().trim();
             String trim5 = this.etXtreamPassword.getText().toString().trim();
